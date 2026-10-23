@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ícone da marca exibido na guia do navegador. -->
+    <link rel="icon" href="../imagens/logo.png" type="image/png" sizes="350x350">
+    <!-- Estilos da autenticação e da estrutura principal. -->
+    <link rel="stylesheet" href="AgroScam.css">
+    <!-- Controla autenticação, navegação e troca de abas. -->
+    <script src="../abas/configuração_js/idioma.js" defer></script>
+    <script src="AgroScam.js" defer></script>
+    <title>AgroScam</title>
+</head>
+<body>
+    <!-- Formulários alternados pelo script; apenas o cadastro aparece inicialmente. -->
+    <section class="registration" aria-labelledby="registration-title">
+        <!-- Formulário de criação de conta. -->
+        <form class="registration__form" data-auth-form="register">
+            <a class="registration__brand" href="#cadastro" aria-label="AgroScam">
+                <img src="../imagens/logo.png" alt="">
+                <span>AgroScam</span>
+            </a>
+            <p class="eyebrow">Acesso à plataforma</p>
+            <h1 id="registration-title">Crie sua conta</h1>
+            <p class="registration__description">Cadastre-se para acompanhar dados e análises do agronegócio.</p>
+
+            <label class="registration__field">
+                Primeiro nome
+                <input name="name" type="text" autocomplete="name" required>
+            </label>
+            <label class="registration__field">
+                E-mail
+                <input name="email" type="email" autocomplete="email" required>
+            </label>
+            <label class="registration__field">
+                Senha
+                <div class="registration__password">
+                    <input name="password" type="password" autocomplete="new-password" minlength="8" required>
+                    <button class="registration__toggle-password" type="button" data-password-toggle aria-label="Mostrar senha" aria-pressed="false" data-visible="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/>
+                            <circle cx="12" cy="12" r="3.5"/>
+                            <path class="eye-slash" d="M4 4L20 20"/>
+                        </svg>
+                    </button>
+                </div>
+                <span class="registration__hint">Mínimo de 8 caracteres</span>
+            </label>
+            <button class="registration__submit" type="submit">Criar conta</button>
+            <div class="registration__divider" aria-hidden="true"><span>ou</span></div>
+            <button class="registration__google" type="button" data-google-signin>Continuar com Google</button>
+            <p class="registration__notice" data-google-message role="status" aria-live="polite" hidden></p>
+            <p class="registration__switch">Já tem uma conta? <button type="button" data-auth-view="login">Entrar</button></p>
+        </form>
+
+        <!-- Formulário de entrada, exibido quando a pessoa escolhe "Entrar". -->
+        <form class="registration__form" data-auth-form="login" aria-labelledby="login-title" hidden>
+            <a class="registration__brand" href="#cadastro" aria-label="AgroScam">
+                <img src="../imagens/logo.png" alt="">
+                <span>AgroScam</span>
+            </a>
+            <p class="eyebrow">Acesso à plataforma</p>
+            <h1 id="login-title">Entre na sua conta</h1>
+            <p class="registration__description">Acesse suas análises e relatórios do agronegócio.</p>
+
+            <label class="registration__field">
+                E-mail
+                <input name="login-email" type="email" autocomplete="email" required>
+            </label>
+            <label class="registration__field">
+                Senha
+                <div class="registration__password">
+                    <input name="login-password" type="password" autocomplete="current-password" required>
+                    <button class="registration__toggle-password" type="button" data-password-toggle aria-label="Mostrar senha" aria-pressed="false" data-visible="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/>
+                            <circle cx="12" cy="12" r="3.5"/>
+                            <path class="eye-slash" d="M4 4L20 20"/>
+                        </svg>
+                    </button>
+                </div>
+            </label>
+            <button class="registration__submit" type="submit">Entrar</button>
+            <div class="registration__divider" aria-hidden="true"><span>ou</span></div>
+            <button class="registration__google" type="button" data-google-signin>Continuar com Google</button>
+            <p class="registration__notice" data-google-message role="status" aria-live="polite" hidden></p>
+            <p class="registration__switch">Ainda não tem uma conta? <button type="button" data-auth-view="register">Criar conta</button></p>
+        </form>
+    </section>
+
+    <!-- Aplicativo principal: navegação lateral e conteúdo da aba selecionada. -->
+    <div class="app-shell" hidden>
+    <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="#inicio" aria-label="AgroScam - início">
+            <img src="../imagens/logo.png" alt="Logo AgroScam">
+            <span>AgroScam</span>
+        </a>
+
+        <!-- Os hashes identificam as páginas carregadas no iframe. -->
+        <nav class="navigation">
+            <a class="navigation__link navigation__link--active" href="#inicio" data-short="VsGl" title="Visão geral">Visão geral</a>
+            <a class="navigation__link" href="#analises" data-short="Anls" title="Análises">Análises</a>
+            <a class="navigation__link" href="#relatorios" data-short="Relt" title="Relatórios">Relatórios</a>
+            <a class="navigation__link" href="#configuracoes" data-short="Conf" title="Configurações">Configurações</a>
+        </nav>
+        <!-- Ação de saída vinculada ao controlador da sessão. -->
+        <div class="sidebar__footer">
+            <button class="logout-button" type="button" data-logout title="Sair da conta">Sair</button>
+        </div>
+
+    </aside>
+
+    <!-- Controla visualmente o recolhimento da navegação lateral. -->
+    <button class="sidebar-toggle" type="button" aria-label="Esconder barra lateral" aria-expanded="true">
+        <span aria-hidden="true">‹</span>
+    </button>
+
+    <main class="content" id="conteudo-principal">
+        <!-- Carrega a página selecionada sem substituir a estrutura principal. -->
+        <iframe class="tab-frame" data-tab-frame src="../abas/configuração_html/visao_geral.html" title="Visão geral"></iframe>
+    </main>
+    </div>
+
+</body>
+</html>
