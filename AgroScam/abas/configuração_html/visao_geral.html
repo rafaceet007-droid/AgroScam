@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Estilos comuns e específicos usados pela visão geral. -->
+	<link rel="stylesheet" href="../../bases_visuais/base.css">
+	<link rel="stylesheet" href="../configuração_css/visao_geral.css">
+	<!-- Atualiza o título e controla as interações de pergunta e imagem. -->
+	<script src="../configuração_js/idioma.js" defer></script>
+	<script src="../../bases_visuais/base.js" defer></script>
+	<script src="../configuração_js/visao_geral.js" defer></script>
+	<title>Visão geral | AgroScam</title>
+</head>
+<body>
+	<main class="overview" data-page-title="Visão geral" aria-label="Visão geral">
+		<!-- Área expansível para selecionar ou soltar imagens. -->
+		<section class="image-workspace" id="image-workspace" aria-label="Área para imagens" hidden>
+			<label class="upload-zone" data-upload-zone for="image-input">
+				<input id="image-input" class="visually-hidden" type="file" accept="image/*" multiple data-image-input>
+				<span class="upload-zone__icon" aria-hidden="true">+</span>
+				<span class="upload-zone__title">Escolher imagens</span>
+				<span class="upload-zone__hint">ou arraste e solte aqui · PNG, JPG ou WEBP</span>
+			</label>
+		</section>
+
+		<!-- Formulário principal, com anexos opcionais e campo de pergunta. -->
+		<form class="question-bar" data-question-form>
+			<button class="question-bar__images" type="button" data-image-toggle aria-label="Abrir área de imagens" aria-controls="image-workspace" aria-expanded="false" title="Abrir área de imagens">+</button>
+			<div class="image-previews" data-image-previews aria-live="polite"></div>
+			<label class="visually-hidden" for="question-input">Sua pergunta</label>
+			<input id="question-input" name="question" type="text" maxlength="2000" placeholder="O que você gostaria de analisar?" autocomplete="off">
+			<button class="question-bar__microphone" type="button" data-speech-toggle aria-label="Iniciar ditado" aria-pressed="false" title="Ditado por voz">
+				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+					<rect x="9" y="2" width="6" height="12" rx="3"></rect>
+					<path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"></path>
+				</svg>
+			</button>
+			<button type="submit">Perguntar</button>
+		</form>
+		<p class="question-privacy">A pergunta e as imagens anexadas serão enviadas ao Gemini para análise.</p>
+		<!-- Região acessível para retorno após o envio da pergunta. -->
+		<p class="question-message" data-question-message role="status" aria-live="polite" hidden></p>
+		<section class="analysis-result" data-analysis-result aria-live="polite" hidden>
+			<h2>Análise da IA</h2>
+			<p data-analysis-answer></p>
+		</section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,477 @@
+/* Divide a área de atividade entre histórico e orientação. */
+.analysis-layout {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	gap: 16px;
+	margin-top: 16px;
+}
+
+/* Organiza os três indicadores em colunas de mesma largura. */
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	margin-top: 30px;
+}
+
+/* Formata o texto de apoio logo abaixo do título principal. */
+.page-heading > p:last-child {
+	margin: 12px 0 0;
+	color: var(--muted);
+	font: 0.92rem/1.6 Arial, sans-serif;
+}
+
+/* Mantém a mesma superfície visual para métricas e painéis. */
+.stat-card,
+.page-panel {
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius);
+	background: var(--surface-overlay);
+	box-shadow: 0 12px 30px rgba(23, 59, 44, 0.06);
+}
+
+/* Empilha rótulo, número e observação de cada métrica. */
+.stat-card {
+	display: grid;
+	gap: 10px;
+	padding: 22px;
+}
+
+/* Rótulos de seção e de indicador usam a mesma hierarquia visual. */
+.stat-card__label,
+.panel__eyebrow {
+	color: var(--muted);
+	font-family: Arial, sans-serif;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+/* Dá destaque numérico ao valor de cada indicador. */
+.stat-card strong {
+	font-size: 2.5rem;
+	font-weight: 400;
+}
+
+/* Destaca a observação que acompanha o valor da métrica. */
+.stat-card__change {
+	color: var(--accent-strong);
+	font-family: Arial, sans-serif;
+	font-size: 0.76rem;
+}
+
+.stat-card__change--warning { color: #b06a35; }
+
+/* Espaça os painéis em relação aos demais blocos da página. */
+.page-panel {
+	margin-top: 16px;
+	padding: 28px;
+}
+
+/* Define o título secundário dos painéis. */
+.page-panel h2 {
+	margin: 8px 0 0;
+	font-size: 1.45rem;
+	font-weight: 400;
+}
+
+.new-farm-button,
+.farm-form__submit,
+.farm-form__cancel {
+	padding: 10px 16px;
+	border: 1px solid var(--surface-border-strong);
+	border-radius: var(--radius);
+	background: var(--surface);
+	color: var(--text);
+	font: 700 0.8rem Arial, sans-serif;
+	cursor: pointer;
+}
+
+.new-farm-button {
+	background: var(--accent);
+	border-color: transparent;
+	color: var(--sidebar);
+}
+
+.farm-form__submit:hover,
+.farm-form__cancel:hover {
+	background: var(--surface-hover);
+}
+
+.new-farm-button:hover {
+	background: var(--accent);
+	filter: brightness(0.94);
+}
+
+.farm-form__submit {
+	background: var(--accent);
+	border-color: var(--accent);
+	color: var(--text);
+}
+
+.farm-form__cancel {
+	background: transparent;
+}
+
+/* Remove a margem padrão do rótulo interno de cada painel. */
+.panel__eyebrow { margin: 0; }
+
+.farm-form {
+	display: grid;
+	gap: 18px;
+	margin-top: 20px;
+	padding: 18px;
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius);
+	background: var(--surface-overlay);
+}
+
+.farm-form[hidden] {
+	display: none;
+}
+
+.field-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+	align-items: start;
+}
+
+.field-grid > .field-group {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 100%;
+}
+
+.field-group {
+	display: grid;
+	gap: 8px;
+	color: var(--text);
+	font: 700 0.76rem Arial, sans-serif;
+	min-width: 0;
+}
+
+.field-hint {
+	color: var(--muted);
+	font: 0.74rem/1.5 Arial, sans-serif;
+}
+
+.field-grid > .field-group {
+	width: 100%;
+}
+
+.field-group--full {
+	grid-column: 1 / -1;
+}
+
+.field-group input,
+.field-group textarea,
+.field-group select {
+	width: 100%;
+	padding: 11px 12px;
+	border: 1px solid var(--surface-border-strong);
+	background: var(--surface);
+	color: var(--text);
+	font: 0.9rem/1.5 Arial, sans-serif;
+	box-sizing: border-box;
+}
+
+.field-group textarea {
+	resize: vertical;
+}
+
+.field-group select {
+	appearance: none;
+	background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+	background-position: calc(100% - 16px) calc(50% - 2px), calc(100% - 11px) calc(50% - 2px);
+	background-size: 5px 5px, 5px 5px;
+	background-repeat: no-repeat;
+	padding-right: 36px;
+}
+
+.farm-form__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.culture-panel {
+	margin-top: 24px;
+	min-height: 300px;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.culture-form {
+	display: grid;
+	gap: 18px;
+	margin-top: 20px;
+	padding: 18px;
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius);
+	background: var(--surface-overlay);
+}
+
+.culture-form[hidden] {
+	display: none;
+}
+
+.culture-list {
+	display: grid;
+	gap: 14px;
+	margin-top: 18px;
+}
+
+.culture-card {
+	display: grid;
+	gap: 12px;
+	padding: 18px;
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius);
+	background: var(--surface-overlay);
+}
+
+.culture-card__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.culture-card__title {
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: 700;
+}
+
+.culture-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	color: var(--muted);
+	font: 0.76rem/1.5 Arial, sans-serif;
+}
+
+.culture-card__badge {
+	padding: 7px 10px;
+	border-radius: 999px;
+	background: var(--surface-accent);
+	color: var(--accent-strong);
+	font: 700 0.72rem Arial, sans-serif;
+}
+
+.culture-card__notes {
+	margin: 0;
+	color: var(--text);
+	font: 0.9rem/1.6 Arial, sans-serif;
+}
+
+.culture-card__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	padding-top: 8px;
+	border-top: 1px solid var(--surface-border);
+}
+
+.culture-card__date {
+	color: var(--muted);
+	font: 0.76rem/1.5 Arial, sans-serif;
+}
+
+.culture-card__delete,
+.culture-card__edit,
+.farm-card__delete,
+.farm-card__edit {
+	padding: 8px 12px;
+	border: 1px solid var(--surface-border-strong);
+	border-radius: var(--radius);
+	background: transparent;
+	color: var(--text);
+	font: 700 0.76rem Arial, sans-serif;
+	cursor: pointer;
+}
+
+.culture-card__edit,
+.farm-card__edit {
+	background: var(--surface);
+}
+
+.culture-card__delete:hover,
+.culture-card__edit:hover,
+.farm-card__delete:hover,
+.farm-card__edit:hover {
+	background: var(--surface-hover);
+}
+
+/* Selo compacto para indicar uma condição ou estado do painel. */
+.panel__badge {
+	align-self: start;
+	padding: 7px 10px;
+	border-radius: var(--radius);
+	background: var(--surface-accent);
+	color: var(--accent-strong);
+	font-family: Arial, sans-serif;
+	font-size: 0.72rem;
+}
+
+/* Alinha o cabeçalho e o conteúdo interno dos painéis. */
+.page-panel,
+.panel-heading {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+/* Ajustes específicos do painel de histórico e do painel de orientação. */
+.chart-panel,
+.insight-panel { margin-top: 0; }
+.chart-panel {
+	min-height: 300px;
+	flex-direction: column;
+	align-items: stretch;
+}
+/* Cada conversa mostra a pergunta, a data e sua ação de remoção. */
+.conversation-list { display: grid; }
+.conversation-item {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 16px 0;
+	border-top: 1px solid var(--surface-border);
+}
+.conversation-item > div { min-width: 0; }
+.conversation-item__question {
+	margin: 0;
+	color: var(--text);
+	font: 0.9rem/1.5 Arial, sans-serif;
+	overflow-wrap: anywhere;
+}
+.conversation-item__date {
+	display: block;
+	margin-top: 6px;
+	color: var(--muted);
+	font: 0.75rem Arial, sans-serif;
+}
+.conversation-delete {
+	flex: 0 0 auto;
+	min-height: 36px;
+	padding: 0 12px;
+	border: 1px solid var(--surface-border-strong);
+	background: var(--surface);
+	color: var(--text);
+	cursor: pointer;
+	font: 700 0.78rem Arial, sans-serif;
+}
+.conversation-delete:hover { background: var(--surface-hover); }
+.conversation-message {
+	margin: 8px 0 0;
+	color: var(--muted);
+	font: 0.8rem/1.5 Arial, sans-serif;
+}
+.conversation-message[hidden] { display: none; }
+/* Mensagem centralizada verticalmente quando ainda não há resultados. */
+.empty-state { margin: auto 0; color: var(--muted); font: 0.88rem/1.6 Arial, sans-serif; }
+/* Barras posicionadas pela base; a altura vem da variável de cada dado. */
+.bar-chart { display: flex; align-items: end; justify-content: space-around; height: 170px; margin-top: 34px; border-bottom: 1px solid var(--surface-border-strong); }
+.bar-chart > span { position: relative; width: 12%; height: var(--bar-height); border-radius: var(--radius); background: var(--sidebar-soft); }
+.bar-chart small { position: absolute; top: calc(100% + 10px); width: 100%; color: var(--muted); font: 0.7rem Arial, sans-serif; text-align: center; }
+/* Atenua a descrição do painel lateral de orientação. */
+.insight-panel p:last-child { color: var(--muted); font: 0.92rem/1.6 Arial, sans-serif; }
+
+.farm-list {
+	display: grid;
+	gap: 16px;
+	margin-top: 24px;
+}
+
+.farm-card {
+	display: grid;
+	gap: 18px;
+	padding: 18px;
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius);
+	background: var(--surface-overlay);
+}
+
+.farm-card__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.farm-card__title {
+	margin: 0;
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+
+.farm-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 6px 0 0;
+	color: var(--muted);
+	font: 0.72rem Arial, sans-serif;
+}
+
+.farm-card__score {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 72px;
+	padding: 8px 12px;
+	border-radius: 999px;
+	background: var(--surface-accent);
+	color: var(--accent-strong);
+	font: 700 0.78rem Arial, sans-serif;
+}
+
+.farm-card__analysis {
+	margin: 0;
+	color: var(--text);
+	font: 0.9rem/1.7 Arial, sans-serif;
+}
+
+.farm-card__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	padding-top: 12px;
+	border-top: 1px solid var(--surface-border);
+}
+
+.farm-card__date {
+	color: var(--muted);
+	font: 0.75rem Arial, sans-serif;
+}
+
+.farm-card__delete {
+	border-radius: var(--radius);
+}
+
+/* Empilha os cartões e painéis em telas estreitas. */
+@media (max-width: 700px) {
+	.stats-grid,
+	.analysis-layout,
+	.field-grid {
+		grid-template-columns: 1fr;
+		margin-top: 32px;
+	}
+
+	.analysis-layout { margin-top: 16px; }
+
+	.page-panel,
+	.panel-heading,
+	.farm-card__header,
+	.farm-card__footer {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}

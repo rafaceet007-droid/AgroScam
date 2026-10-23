@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Estilos comuns e específicos usados pela página de configurações. -->
+	<link rel="stylesheet" href="../../bases_visuais/base.css">
+	<link rel="stylesheet" href="../configuração_css/configuracoes.css">
+	<!-- Atualiza o título da página e carrega o script específico de configurações. -->
+	<script src="../configuração_js/idioma.js" defer></script>
+	<script src="../../bases_visuais/base.js" defer></script>
+	<script src="../configuração_js/configuracoes.js" defer></script>
+	<title>Configurações | AgroScam</title>
+</head>
+<body>
+	<main class="tab-page" data-page-title="Configurações" aria-label="Configurações">
+		<!-- Título e descrição da preferência visual. -->
+		<header class="page-heading">
+			<p class="eyebrow">Personalize a interface</p>
+			<h1>Configurações</h1>
+		</header>
+		<!-- Seletor de temas predefinidos aplicado à página e à navegação principal. -->
+		<section class="theme-panel" aria-labelledby="theme-title">
+			<p class="panel__eyebrow">Aparência</p>
+			<label class="setting-row theme-row">
+				<span>
+					<strong id="theme-title">Temas</strong>
+				</span>
+				<select class="theme-select" data-theme-select aria-label="Paleta de cores do site">
+
+					<option value="campo">Campo</option>
+					<option value="ceu">Céu</option>
+					<option value="oceano">Oceano</option>
+					<option value="terra">Terra</option>
+					<option value="noturno">Noturno</option>
+					
+				</select>
+			</label>
+			<p class="theme-status" data-theme-status role="status" aria-live="polite"></p>
+		</section>
+		<section class="theme-panel" aria-labelledby="language-title">
+			<p class="panel__eyebrow">Preferências</p>
+			<label class="setting-row theme-row" for="language-select">
+				<span>
+					<strong id="language-title">Idioma</strong>
+					<small>A interface será exibida neste idioma.</small>
+				</span>
+				<select class="theme-select" id="language-select" data-language-select aria-label="Idioma preferido">
+					<option value="pt-BR">Português</option>
+					<option value="es">Espanhol</option>
+					<option value="en">Inglês</option>
+				</select>
+			</label>
+			<p class="theme-status" data-language-status role="status" aria-live="polite"></p>
+		</section>
+	</main>
+</body>
+</html>

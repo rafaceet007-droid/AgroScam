@@ -1,0 +1,123 @@
+/* Variáveis visuais usadas por todas as páginas internas. */
+:root {
+	--background: #f4f7f2;
+	--sidebar: #173b2c;
+	--sidebar-soft: #245640;
+	--text: #173b2c;
+	--muted: #6b7e71;
+	--accent: #b9d96c;
+	--accent-strong: #6c8c45;
+	--surface: #fff;
+	--surface-overlay: rgba(255, 255, 255, 0.72);
+	--surface-upload: rgba(255, 255, 255, 0.58);
+	--surface-hover: #f4f7f2;
+	--surface-border: #dbe6d5;
+	--surface-border-strong: #cddac8;
+	--surface-accent: #e7f1d9;
+	--radius: 4px;
+}
+
+/* Paleta oceano para as páginas carregadas dentro do iframe. */
+:root[data-theme="oceano"] {
+	--background: #f1f6f5;
+	--sidebar: #183e49;
+	--sidebar-soft: #2b6470;
+	--text: #183e49;
+	--muted: #617a7e;
+	--accent: #8fd3c7;
+	--accent-strong: #286f78;
+}
+
+/* Paleta terra para as páginas carregadas dentro do iframe. */
+:root[data-theme="terra"] {
+	--background: #f8f3ed;
+	--sidebar: #50372d;
+	--sidebar-soft: #805740;
+	--text: #3d3029;
+	--muted: #79685e;
+	--accent: #e6ad69;
+	--accent-strong: #a4623d;
+}
+
+/* Paleta céu para manter as páginas internas em tons de azul claro. */
+:root[data-theme="ceu"] {
+	--background: #f1f7fc;
+	--sidebar: #285985;
+	--sidebar-soft: #397caf;
+	--text: #244766;
+	--muted: #627b93;
+	--accent: #b7def7;
+	--accent-strong: #3976a5;
+}
+
+/* Paleta noturna para as páginas internas carregadas no iframe. */
+:root[data-theme="noturno"] {
+	--background: #141b21;
+	--sidebar: #1b252d;
+	--sidebar-soft: #2d414b;
+	--text: #e5edf0;
+	--muted: #a3b3bb;
+	--accent: #85d1c4;
+	--accent-strong: #45a99b;
+	--surface: #202b33;
+	--surface-overlay: rgba(32, 43, 51, 0.96);
+	--surface-upload: rgba(32, 43, 51, 0.72);
+	--surface-hover: #293943;
+	--surface-border: #364650;
+	--surface-border-strong: #455965;
+	--surface-accent: #294744;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background: transparent;
+	color: var(--text);
+	font-family: Georgia, 'Times New Roman', serif;
+}
+
+button,
+input {
+	border-radius: var(--radius);
+}
+
+/* Estilo compartilhado para pequenos títulos de contexto. */
+.eyebrow {
+	margin: 0 0 10px;
+	color: var(--accent-strong);
+	font-family: Arial, sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+/* Limita a largura do conteúdo e centraliza cada aba no quadro. */
+.tab-page {
+	width: min(100%, 1120px);
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 12px 0;
+	animation: page-enter 280ms ease both;
+}
+
+.tab-page h1 {
+	margin: 0;
+	font-size: clamp(2.2rem, 5vw, 3.6rem);
+	font-weight: 400;
+}
+
+/* Entrada sutil aplicada às páginas internas ao carregarem. */
+@keyframes page-enter {
+	from { opacity: 0; transform: translateY(8px); }
+	to { opacity: 1; transform: translateY(0); }
+}

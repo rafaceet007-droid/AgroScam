@@ -1,0 +1,57 @@
+/* Espaço entre o título e uma eventual lista de relatórios. */
+.report-list {
+	margin-top: 26px;
+}
+
+/* Texto explicativo logo abaixo do título da página. */
+.page-heading > p:last-child {
+	margin: 12px 0 0;
+	color: var(--muted);
+	font: 0.92rem/1.6 Arial, sans-serif;
+}
+
+/* Organiza o título e o estado da lista dentro de um único painel. */
+.reports-panel {
+	min-height: 230px;
+	margin-top: 30px;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+/* Hierarquia do título da lista dentro do painel. */
+.reports-panel h2 {
+	margin: 8px 0 0;
+	font-size: 1.45rem;
+	font-weight: 400;
+}
+
+/* Apresenta uma explicação quando ainda não há relatórios disponíveis. */
+.reports-panel .empty-state {
+	margin: auto 0;
+	color: var(--muted);
+	font: 0.88rem/1.6 Arial, sans-serif;
+}
+
+/* Linha individual de relatório: descrição à esquerda, ação à direita. */
+.report-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 18px 0;
+	border-top: 1px solid var(--surface-border);
+	color: var(--text);
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+}
+
+.report-item strong,
+.report-item small {
+	display: block;
+}
+
+.report-item small {
+	margin-top: 5px;
+	color: var(--muted);
+	font-size: 0.78rem;
+}

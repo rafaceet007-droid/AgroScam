@@ -1,0 +1,113 @@
+/* Restringe a largura e define o espaçamento do painel de preferências. */
+.settings-panel {
+	display: block;
+	max-width: 760px;
+	margin-top: 30px;
+	padding: 28px;
+}
+
+/* Painel que agrupa o seletor de paletas disponíveis. */
+.theme-panel {
+	max-width: 760px;
+	margin-top: 30px;
+	padding: 28px;
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius);
+	background: var(--surface-overlay);
+	box-shadow: 0 12px 30px rgba(23, 59, 44, 0.06);
+}
+
+.theme-panel h2 {
+	margin: 8px 0 0;
+	font-size: 1.45rem;
+	font-weight: 400;
+}
+
+.theme-row {
+	margin-top: 18px;
+}
+
+.theme-select {
+	min-width: 180px;
+	min-height: 42px;
+	padding: 8px 12px;
+	border: 1px solid var(--surface-border-strong);
+	background: var(--surface);
+	color: var(--text);
+	font: 0.9rem Arial, sans-serif;
+}
+
+.theme-select:focus-visible {
+	outline: 2px solid var(--accent-strong);
+	outline-offset: 2px;
+}
+
+.theme-status {
+	min-height: 1.2em;
+	margin: 10px 0 0;
+	color: var(--muted);
+	font: 0.8rem/1.5 Arial, sans-serif;
+}
+
+/* Estilo do texto de apoio do cabeçalho. */
+.page-heading > p:last-child {
+	margin: 12px 0 0;
+	color: var(--muted);
+	font: 0.92rem/1.6 Arial, sans-serif;
+}
+
+/* Define a hierarquia visual do título dentro do painel. */
+.settings-panel h2 {
+	margin: 8px 0 0;
+	font-size: 1.45rem;
+	font-weight: 400;
+}
+
+/* Alinha cada descrição à esquerda e seu valor atual à direita. */
+.setting-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 20px 0;
+	border-top: 1px solid var(--surface-border);
+	font-family: Arial, sans-serif;
+}
+
+/* Mantém o nome da preferência e sua descrição em linhas separadas. */
+.setting-row strong,
+.setting-row small {
+	display: block;
+}
+
+/* Apresenta o valor atual com menor destaque que o nome da preferência. */
+.setting-value {
+	color: var(--muted);
+	font-size: 0.84rem;
+}
+
+/* Formata a explicação curta abaixo de cada nome de preferência. */
+.setting-row small {
+	margin-top: 5px;
+	color: var(--muted);
+	font-size: 0.78rem;
+}
+
+/* Define o tamanho e a cor de caixas de seleção, se forem usadas. */
+.setting-row input {
+	width: 18px;
+	height: 18px;
+	accent-color: var(--sidebar-soft);
+}
+
+/* Empilha cada preferência quando a tela fica estreita. */
+@media (max-width: 700px) {
+	.setting-row {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.theme-select {
+		width: 100%;
+	}
+}

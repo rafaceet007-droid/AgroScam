@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Estilos comuns e específicos usados pela página de análises. -->
+	<link rel="stylesheet" href="../../bases_visuais/base.css">
+	<link rel="stylesheet" href="../configuração_css/analises.css">
+	<!-- Atualiza o título da página; o script específico está reservado para futuras interações. -->
+	<script src="../configuração_js/idioma.js" defer></script>
+	<script src="../../bases_visuais/base.js" defer></script>
+	<script src="../configuração_js/analises-armazenamento.js" defer></script>
+	<script src="../configuração_js/analises-conversas.js" defer></script>
+	<script src="../configuração_js/analises.js" defer></script>
+	<title>Análises | AgroScam</title>
+</head>
+<body>
+	<main class="tab-page">
+		<header class="page-heading">
+			<p class="eyebrow">Monitoramento</p>
+			<h1>Análises por lavoura</h1>
+			<p>Cadastre as lavouras e acompanhe a análise de cada uma em um só painel.</p>
+		</header>
+
+		<section class="stats-grid" aria-label="Indicadores de análise">
+			<article class="stat-card">
+				<span class="stat-card__label">Lavouras</span>
+				<strong data-field-count>0</strong>
+				<span class="stat-card__change">em monitoramento</span>
+			</article>
+			<article class="stat-card">
+				<span class="stat-card__label">Área total</span>
+				<strong data-area-total>0 ha</strong>
+				<span class="stat-card__change">somada</span>
+			</article>
+			<article class="stat-card">
+				<span class="stat-card__label">Saúde média</span>
+				<strong data-health-average>0%</strong>
+				<span class="stat-card__change stat-card__change--warning">padrão geral</span>
+			</article>
+		</section>
+
+		<section class="page-panel chart-panel" aria-live="polite">
+			<div class="panel-heading">
+				<div>
+					<p class="panel__eyebrow">Lista de lavouras</p>
+					<h2>Análises cadastradas</h2>
+				</div>
+				<button class="new-farm-button" type="button" data-farm-toggle aria-expanded="false" aria-controls="farm-form-panel">Nova</button>
+			</div>
+
+			<form class="farm-form" data-farm-form id="farm-form-panel" hidden>
+				<div class="field-grid">
+					<label class="field-group">
+						<span>Nome da lavoura</span>
+						<input name="name" type="text" maxlength="80" required>
+					</label>
+					<label class="field-group">
+						<span>Cultura</span>
+						<select name="crop" required>
+							<option value="">Selecione uma cultura</option>
+						</select>
+					</label>
+					<label class="field-group">
+						<span>Área (ha)</span>
+						<input name="area" type="number" min="0.1" max="1000000" step="0.1" aria-describedby="area-example" required>
+					</label>
+					<label class="field-group">
+						<span>Saúde (%)</span>
+						<input name="health" type="number" min="0" max="100" step="1" required>
+						<small class="field-hint" id="health-example">Exemplo: 1000 plantas, 240 com perdas: (1000 − 240) ÷ 1000 × 100 = 76% de saúde.</small>
+					</label>
+				</div>
+
+				<label class="field-group field-group--full">
+					<span>Análise</span>
+					<textarea name="analysis" rows="4" maxlength="2000" placeholder="campo para a IA colocar a análise."></textarea>
+				</label>
+
+				<div class="farm-form__actions">
+					<button class="farm-form__submit" type="submit" data-farm-submit>Salvar lavoura</button>
+					<button class="farm-form__cancel" type="button" data-farm-cancel>Cancelar</button>
+				</div>
+			</form>
+
+			<div class="farm-list" data-farm-list></div>
+			<p class="empty-state" data-farm-empty>Não há lavouras registradas. Cadastre a primeira análise para começar.</p>
+			<p class="conversation-message" data-farm-message hidden></p>
+		</section>
+
+		<section class="page-panel culture-panel" aria-live="polite">
+			<div class="panel-heading">
+				<div>
+					<p class="panel__eyebrow">Catálogo</p>
+					<h2>Cadastro de culturas</h2>
+				</div>
+				<button class="new-farm-button" type="button" data-culture-toggle aria-expanded="false" aria-controls="culture-form-panel">Nova</button>
+			</div>
+
+			<form class="culture-form" data-culture-form id="culture-form-panel" hidden>
+				<div class="field-grid">
+					<label class="field-group">
+						<span>Nome da cultura</span>
+						<input name="name" type="text" maxlength="80" required>
+					</label>
+					<label class="field-group">
+						<span>Tipo</span>
+						<input name="type" type="text" maxlength="60" required>
+					</label>
+					<label class="field-group">
+						<span>Ciclo (dias)</span>
+						<input name="cycle" type="number" min="1" max="3650" step="1" required>
+					</label>
+					<label class="field-group">
+						<span>Época plantio</span>
+						<input name="season" type="text" maxlength="80" required>
+					</label>
+				</div>
+
+				<label class="field-group field-group--full">
+					<span>Observações</span>
+					<textarea name="notes" rows="3" maxlength="1000" placeholder="Informações sobre manejo, clima ideal ou riscos específicos."></textarea>
+				</label>
+
+				<div class="farm-form__actions">
+					<button class="farm-form__submit" type="submit" data-culture-submit>Salvar cultura</button>
+					<button class="farm-form__cancel" type="button" data-culture-cancel>Cancelar</button>
+				</div>
+			</form>
+
+			<div class="culture-list" data-culture-list></div>
+			<p class="empty-state" data-culture-empty>Não há culturas cadastradas. Adicione a primeira cultura ao catálogo.</p>
+			<p class="conversation-message" data-culture-message hidden></p>
+		</section>
+	</main>
+</body>
+</html>
